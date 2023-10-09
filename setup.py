@@ -243,7 +243,7 @@ try:
                     auditwheel_cmd += ["--exclude", i]
                 logger.info("Running {}".format(" ".join([shlex.quote(arg) for arg in auditwheel_cmd])))
                 try:
-                    subprocess.run(auditwheel_cmd, check=True, stdout=subprocess.PIPE)
+                    subprocess.run(auditwheel_cmd, check=True, stdout=subprocess.PIPE, shell=False)
                 finally:
                     logger.info("removing %s", file)
                     remove(file)
